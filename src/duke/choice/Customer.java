@@ -14,12 +14,10 @@ public class Customer {
     private String name;
     private String size;
     private Clothing[] items;
-    
-    public Customer(){ }
-    
-    public Customer(String name)
-    {
+        
+    public Customer(String name, int measurement){
         this.name = name;
+        this.setSize(measurement);
     }
     public void addItems(Clothing[] items){
         this.items = items;
