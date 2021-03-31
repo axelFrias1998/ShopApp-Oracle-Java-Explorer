@@ -12,12 +12,11 @@ package duke.choice;
 public class ShopApp {
 
     public static void main(String [] args){
-        final double TAX = 0.2;
-        
         Customer c1 = new Customer("Pinky", 3);
         
         System.out.println("Welcome to Duke Choice Shop, " + c1.getName() + "!\n Your size: " + c1.getSize() );
         
+        System.out.println("Min price: $" + Clothing.MIN_PRICE);
         Clothing item1 = new Clothing("Blue Jacket", 20.9, "X");
         Clothing item2 = new Clothing("Orange T-Shirt", 19.5, "S");
         Clothing item3 = new Clothing("Orange T-Shirt", 10.5, "S");
@@ -31,6 +30,21 @@ public class ShopApp {
             if(c1.getSize().equals(item.getSize())){
                 System.out.println("ITEM: " + item.getDescription() + ". SIZE: " + item.getSize() + ". PRICE: $" + item.getPrice());
             }
+        }
+        
+        int average = 0;
+        int count = 0;
+        for(Clothing item: c1.getItems()){
+            if(item.getSize().equals("L")){
+                average += item.getPrice();
+                count++;
+            }
+        }
+        try{
+            average = (count == 0) ? 0 : average / count;
+            System.out.println("Average price: $" + average);
+        } catch(ArithmeticException ex){
+            System.out.println("Don't divide by 0.");
         }
         
         System.out.println("TOTAL: $" + c1.getTotalClothingCost());

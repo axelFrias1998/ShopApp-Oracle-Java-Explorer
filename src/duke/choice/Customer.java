@@ -19,6 +19,7 @@ public class Customer {
         this.name = name;
         this.setSize(measurement);
     }
+    
     public void addItems(Clothing[] items){
         this.items = items;
     }
@@ -35,7 +36,8 @@ public class Customer {
             }
         }
         return total;
-    } 
+    }
+    
     
     public String getName() {
         return name;
